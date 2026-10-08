@@ -9,21 +9,21 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="352dp"
-        android:layout_height="129dp"
+        android:layout_width="348dp"
+        android:layout_height="71dp"
         android:fontFamily="casual"
         android:rotation="0"
         android:rotationX="0"
-        android:text="Tres en Raya 2"
+        android:text="Tres en Raya"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <FrameLayout
         android:id="@+id/contenedorTablero"
@@ -88,6 +88,42 @@
         </GridLayout>
 
     </FrameLayout>
+
+
+    <ImageButton
+        android:id="@+id/btnDificultad"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/dificultad"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:contentDescription="Seleccionar dificultad"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnNuevaPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nueva partida"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/contenedorTablero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textoResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btnNuevaPartida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

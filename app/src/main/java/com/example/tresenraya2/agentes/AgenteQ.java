@@ -6,6 +6,7 @@ import com.example.tresenraya2.TiposAcciones;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -251,6 +252,37 @@ public class AgenteQ extends AbstractAgente {
     public String volcarTabla(int maxFilas) {
         return "";
     }
+
+
+    public void cargar(InputStream entrada) throws IOException {
+        try (Scanner sc = new Scanner(entrada)) {
+            sc.useLocale(Locale.US);
+
+            double[][] tablaTemporal =
+                    new double[N_ESTADOS][N_ACCIONES];
+
+            for (int estado = 0; estado < N_ESTADOS; estado++) {
+                for (int accion = 0; accion < N_ACCIONES; accion++) {
+                    if (!sc.hasNextDouble()) {
+                        throw new IOException(
+                                "Tabla Q incompleta o incorrecta en estado "
+                                        + estado + ", accion " + accion
+                        );
+                    }
+
+                    tablaTemporal[estado][accion] = sc.nextDouble();
+                }
+            }
+
+            for (int estado = 0; estado < N_ESTADOS; estado++) {
+                System.arraycopy(
+                        tablaTemporal[estado], 0,
+                        Q[estado], 0, N_ACCIONES
+                );
+            }
+        }
+    }
+
 
     // ----------------------------------------------------------------
     // A partir de aqui ya esta implementado: no es necesario tocarlo.
